@@ -1,0 +1,185 @@
+<!-- Statistics -->
+Q: In statistics, what is a random variable?
+A: A variable is a symbol (e.g. x, y) that can take on a specific set of values. When the value of the variable is the outcome of a statistical experiment, that variable is a random variable. For example, for a coin-flipping experiment, random variable X can be the number of times the coin shows tails, and P(X) is the probability of tails coming up a consecutive number of times.
+Source: http://stattrek.com/probability-distributions/probability-distribution.aspx?Tutorial=Stat
+Q: What is a probability distribution?
+A: Probability distribution is a table or an equation that links each outcome of a statistical experiment with its probability of occurrence. Example is when flip a coin 2x, what is the probability of heads occurring? So random variable X = # of times heads occurs, P(X) = probability of heads occurring. Since possible combinations are HH, TT, HT, TH, the following table is: X = 0, P(X) = 0.25; X = 1, P(X) = 0.50; X = 2, P(X) = 0.25.
+Source: http://stattrek.com/probability-distributions/probability-distribution.aspx?Tutorial=Stat
+Q: What is a uniform distribution?
+A: An uniform distribution is when all of the values of a random variable occur with equal probability. For example, when rolling a dice, each number on the dice has 1/6 = 16% probability of landing.
+Source: http://stattrek.com/probability-distributions/probability-distribution.aspx?Tutorial=Stat
+Q; What is a cumulative probability distribution?
+A: Cumulative probability is when grouping random variable events together. For example, when rolling a dice, what is the likelihood the value is smaller than 5? The cumulative probability will be P( X < 5 ) = P(X = 1) + P(X = 2) + P(X = 3) + P(X = 4) = 1/6 + 1/6 + 1/6 + 1/6 = 2/3. And for above 5, P ( X >= 5) = P(X = 5) + P(X = 6) = 1/6 + 1/6 = 1/3.
+Source: http://stattrek.com/probability-distributions/probability-distribution.aspx?Tutorial=Stat
+Q: What is the geometric distribution?
+A: It is the distribution of the number of independent Bernoulli trials to get the first success. Equation is P = (1-p)^(x-1)*p, where P = probability mass function, p = probability of success, (1-p) = probability of failure, x = number of trials. Note, Bernoulli trial is an experiment with 2 outcomes, "success" and "failure" (e.g. flipping a coin).
+Source: see KnowledgeTweets post "7.27.2014 – DESCRIPTION: Geometric Distribution"
+
+<!-- Statistical Tools -->
+Q: For RNA-seq, what does it mean to have "desired statistical power"?
+A: the capacity for detecting statistically significant differences in gene expression between experimental groups.
+Source: A survey of best practices for RNA-seq data analysis (Conesa, Madrigal / 2016 / Genome Biology)
+Q: What is Binomial Distribution used for?
+A: Used to determine the likelihood of a specific outcome based on probabilities of success, failure, and # of trials. For example, for 10 multiple questions where each question has 5 choices, what is the likelihood you will get 6 out of 10 correct?
+Source: see KnowledgeTweets post 7.27.2014 – DESCRIPTION: Binomial Distribution
+Q: What is the Negative Binomial Distribution?
+A: CONJ: I think this is used to predict the likelihood of future events based on the same thing as Binomial distribution (likelihood of successs, failure, & # of trials). Example of use: given success rate, what is the probability that I will get my 1st correct answer on the 4th question of the test? What is the probability that I will get my 5th correct answer on the 8th question of the test?
+Source: see KnowledgeTweets post 7.27.2014 - DESCRIPTION: Negative binomial distribution
+Q: What is the difference between Binomial Distribution & Negative Binomial Distribution?
+A: CONJ: in the equation, Negative Binomial adds a '-1' to variables p (probability of success), k (number of successes), & n (total number of trials) because it is calculating the likelihood of success in the next trial. So I think Binomial distribution is used to calculate the probability of a scenario whereas Negative Binomial distribution is used to calculate the likelihood of the next trial being successful.
+Source: see KnowledgeTweets post 7.27.2014 – DESCRIPTION: Binomial Distribution, 7.27.2014 - DESCRIPTION: Negative binomial distribution
+Q: What does the p-value in Spearman rho correlation mean?
+A: The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Spearman correlation at least as extreme as the one computed from these datasets. This is basically determining the likelihood of the the null hypothesis being true (null hypothesis = both sets are actually uncorrelated).
+Source: https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.stats.spearmanr.html
+Q: what does the p-value mean in statistics?
+A: The p-value is the probability of the null hypothesis being true. So when p <= 0.05, this means there is a 5% chance or less that the null hypothesis is true. For example, say 2 genes are stated to be differentially expressed with a p-value of p <= 0.01, this means there is %1 chance or less that null hypothesis (e.g. genes are not differentially expressed) is true. Remember with statistics it's determining the probability or likelihood, it is not for certain.
+Source: see KnowledgeTweets post "8.21.2014 - Multiple hypothesis testing"
+Q: What is linear regression?
+A: This is basically fitting a line to a bunch of datapoints (e.g. fitting a line). This is to help determine the relationship between the independent & dependent variable (assuming there is one). 3 steps to linear regression: 1) analyze correlation & directionality in data, 2) estimate the model (fit the line to the data, like fitting line to scatterplot), 3) evaluate validity & usefulness of model (i.e. the drawn line that describes the relationship between the independent & dependent variable). The 3 uses for regression analysis (that is, fitting a line to data in hopes of identifying a relationship between the independent & dependent variable) - 1) finding causal relationship (e.g. relationship between diet & weight), 2) forecasting an effect (e.g. if I increase variable X, what will happen to variable Y), 3) trend forecasting (e.g. what will be the value of gold in 6 months).
+Source: http://www.statisticssolutions.com/what-is-linear-regression/
+Q: What is correlation analysis?
+A: Basically determining the strength in the correlation between 2 variables. Can use methods such as Pearson correlation, Spearman Rank Correlation, and Kendall correlation.
+Q: How can I used Binomial Distribution for alternative exon splicing?
+A: CONJ: The binomial distribution is used to determine the likelihood (probability) of a type of scenario occurring based on known number of successes and known number of trials. In other words, what is the probability of seeing X successes with Y trials. For example, if there are N number of exons that are different between N isoforms, if there Y number of reads map to N exons with a probability of success of p, then what is the likelihood that X number of reads maps to exon A out of Y reads that map to all alternative exons in that region.
+Source: see KnowledgeTweets post "7.27.2014 – DESCRIPTION: Binomial Distribution"
+Q: What is Principal Component Analysis (PCA)?
+A: Method that determines the strongest variation patterns in the dataset. Based on combination of dimensions in the data (e.g. x & y, height & weight, study time & grades, doesn't just have to be 2D), PCA will find the 2 components called "principal components" where the most variation is observed, PC1 & PC2. For example, if no variation in y-axis but just in x-axis, then PCA will only use the x-axis as this has the most variation between points (variation/dispersion/difference between points). Examle: say data has 2 dimensions, weight and height, are the components of the data. PCA will be used to find the components with the most variation in 2 dimensions. These new axes where there is the most variation don't really mean anything physical as they are a combination of both weight and height.
+Source: http://setosa.io/ev/principal-component-analysis/
+Q: For PCA, what's the point of finding most variation?
+A: Some samples can have many dimensions, therefore could compare multiple samples by 1000s of variables (1000s of dimensions). We want to find how samples are the most different, so find the combination of dimensions that give the most difference between 2 samples. Say there are 20 tissue samples with measured expression from 10,000 genes -> that's 10,000 measured dimensions. However, some genes may show more variation than others, therefore these genes would be most helpful in distinguishing the samples -> PCA will find the most variation in 2 dimensions (which is combination of the 10,000 dimensions) and display the samples on the new (x,y) coordinates based on maximum variation (PC1 has more variation than PC2) -> this will help distinguish differences between the samples.
+Source: http://setosa.io/ev/principal-component-analysis/
+Q: what are ways to determine which statistical distribution (e.g. Poisson, Negative Binomial) to use for a dataset?
+A: CONJ: method of moments, method of L-moments, maximum likelihood method, regression method. Examples of distributions: Normal, Poission, Binomial, Negative Binomial, Beta, Gamma Distribution are a few.
+Source: https://en.wikipedia.org/wiki/Probability_distribution_fitting
+Q: What is a normal distribution?
+A: The "bell curve" distribution where mean value is the center of the distribution (i.e. symmetrical distribution). For normal distribution, mean = median = mode. 68% of the values are within 1 standard deviation & 95% of the values are within 2 standard deviations.
+Source: https://www.mathsisfun.com/data/standard-normal-distribution.html
+Q: For a distribution, what is a positive skew? negative skew?
+A: no skew: both sides graph (with respect to the center) are equal size -> symmetrical (e.g. normal distribution). Negative skew: The left tail is longer; the mass of the distribution is concentrated on the right of the figure. The distribution is said to be left-skewed, left-tailed, or skewed to the left. Positive skew: The right tail is longer; the mass of the distribution is concentrated on the left of the figure. The distribution is said to be right-skewed, right-tailed, or skewed to the right.
+Source: https://en.wikipedia.org/wiki/Skewness
+Q: What is an antilog?
+A: It is the opposite of log. So for log base 10, y = log(x), the antilog is x = 10^y.
+Q: What is a log-normal distribution?
+A: The log-normal distribution is when Y = ln(x), and this results in a normal distribution. When the logarithms of values form a normal distribution, the original (antilog) values are lognormally distributed. It is a skew distribution with many small values and fewer large values. Therefore the mean is usually greater than the mode.
+Source: http://www.mhnederlof.nl/lognormal.html
+Q: What is a linear model?
+A: linear model is fitting a line to data, so it's like line-fitting. This is the same thing as linear regression (fitting a line to data to determine the relationship between the independent & dependent variable). Equation of the line: fits question y = mx + b
+Q: What is the maximum likelihood estimation (MLE)? How does it work? (I don't fully understand)
+A: CONJ: One way to use it is, based on a set of observations (e.g. set of values), what is the probability value that maximizes the chance of seeing this observation.
+Source: see KnowledgeTweets post 8.18.2014 - Maximum Likelihood Estimate (MLE)
+
+<!-- Genomic Positioning -->
+Q: What is 0-based format?
+A: CONJ: 0-based enumerates positions between nucleotides, the range of the position is [start, end) (meaning it the last nucleotide before the end position but not the nucleotide after the end position)
+Q: what is the difference between 0-based & 1-based?
+A: see link https://www.biostars.org/p/84686/. 0-based enumerates positions between nucleotides while 1-based enumerates the nucleotides themselves.
+Q: what file formats are 0-based? 1-based?
+A: 0-based = .bed, .bam, .bcfv2, .psl; 1-based = .vcf, .gff, .sam. The .sam format is weird because .bam is 0-based but when converted to .sam it becomes 1-based? Very confusing.
+Q: Reasons why 0-based maybe advantageous?
+A:  1) computers start data structures with index 0, 2) can calculate length = end - start (for 1-based, length = end - start + 1), 3) for insertions can point to where nucleotides have been inserted, 4) can be thought that splicing occurs "between" bases,
+Q: Reasons why 1-based maybe advantageous?
+A: 1) for mutations and deletions - can point to specific bases that have been changed, 2) for splicing, to shows which base splicing begins with and starts with
+Q: what is the point of 0-based?
+A: so the 0-based system allows to easily calculate the length & describe the range. For instance, 2 <= i < 12 is the same as 1 < i <= 12, 1 < i < 13, 2 <= i <= 12, but the first 2 of the 4 convey the length clearly (12 - 2 + 1 & 12 - 1). For describing the range, if start with 1 --> length will be 1 <= i < N + 1. Whereas if start with 0, then the range is 0 <= i < N.
+Source: http://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html
+
+<!-- Tophat -->
+Q: Difference between read mapping in Tophat & Tophat-fusion?
+A: when mapping initially unmapped (IUM) reads, Tophat splits read into smaller seeds (25bp) -> maps reads to genome with user-defined intron length (how many nucleotides can be between reads) -> reads need to map in the same orientation on both sides on the same chromosome. However, for Tophat-fusion, both parameters (intron length & orientation) are relaxed, allowing for mapping across different chromosomes and in different orientations.
+Q: In tophat-fusion, if a intrachromosomal gene fusion is found what are the possibilities of what it could be? 
+A: Intrachromosomal fusion could be chromosomal rearrangement to bring the genes closer, transcript read-through (transcription jumps from one gene to another, producing a chimeric RNA), or a chromosomal inversion
+Q: For tophat 2, what do the alignment scores (MAPQ score in the sam file) mean?
+A: For Tophat 2 alignment scores, 50 = unique mapping, 3 = maps to 2 locations in the target, 2 = maps to 3 locations, 1 = maps to 4-9 locations, 0 = maps to 10 or more locations.
+Source: https://www.biostars.org/p/92281/
+
+<!-- Cufflinks -->
+Q: How does Cufflinks estimate isoform abundance?
+A: CONJ: Cufflinks uses sequenced paired-end (PE) fragments to determine isoform abundance. Finds PE fragments that uniquely map to isoforms (mutually incompatible PE fragments), uses these to distinguish isoforms -> generates the least number of transcripts to explain the paired-end fragment, mutually compatible & incompatible, observed (Dilworth Theorem) -> uses both unique & non-unique mapped fragments to determine the abundance of each isoform, uses some statistical model (how do they do this??? I think Maximum Likelihood Estimation) -> assigning a fragment to a different isoform implies a different length of that isoform (which is somehow related to the fragment length distribution), therefore use the fragment length distribution to help assign fragments to isoforms. Extra note - Mutually compatible pair-end fragments - paired-end fragments that can map to multiple isoforms of the gene. Mutually incompatible pair-end fragments - paired-end fragments that map to ONLY ONE isoform of the gene.
+Source: Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation. (Trapnell / 2010 / Nature Biotechnology), KnowledgeTweets post "8.18.2014 – PROTOCOL: Applying Maximum Likelihood Estimate (MLE) for transcript reconstruction", KnowledgeTweets post "7.15.2014 – Paper: “Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation.” (Trapnell / 2010 / Nature Biotech)"
+Q: Cufflinks uses Dilworth's Theorem to determine the number of isoforms present in the sample. What is Dilworth's Theorem?
+A: Dilworth's Theorem - basically states that the number fragments that uniquely map to one isoform (mutually incompatible pair-end fragments) - construct the minimum number of isoforms (documented & undocumented) to explain the # of isoforms present. In other words, Cufflinks generates the minimum number of isoforms need to explain the uniquely mapped fragments.
+Source: Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation. (Trapnell / 2010 / Nature Biotechnology)
+Source: KnowledgeTweets post "8.18.2014 – PROTOCOL: Applying Maximum Likelihood Estimate (MLE) for transcript reconstruction", KnowledgeTweets post "7.15.2014 – Paper: “Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation.” (Trapnell / 2010 / Nature Biotech)"
+Q: For Cufflinks, how does it estimate transcript abundance using a statistical model? Says "the probability of observing each fragment is a linear function of the abundances of the transcripts from which it could have originated".
+A: CONJ: can determine which PE fragments originate from which transcripts -> use a likelihood equation to determine the probability a fragment originated from a specific transcript isoform.
+Source: Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation. (Trapnell / 2010 / Nature Biotechnology)
+
+<!-- Samtools -->
+Q: How does samtools report forward strand in a bam file (e.g. accepted_hits.bam)?
+A: The samtools flag for reverse or forward is flag 10. Therefore, to find reads only in reverse direction, use command "samtools view -f 10 file.bam", else to find forward only reads, use command "samtools view -F 10 file.bam".
+Q: Using samtools, how to check if file is pair-end or single-end?
+A: using command "samtools view -c -f 1 file.bam", where this will count (-c) the number of reads that are pair-end in the sample (-f 1, where 1 is the flag for pair-end read). To see the number of single-end reads, use "samtools view -c -F 1 file.bam", where -F excludes all reads with flag 1 (flag for pair-end reads)
+Source: http://broadinstitute.github.io/picard/explain-flags.html
+
+<!-- RNA-Seq -->
+Q: What is average normalized abundance, and why is it an important concept?
+A: Normalized abundance is normalizing the number of elements (e.g. transcripts, reads) mapping to a gene by the total number of elements in a sample (e.g. # of reads mapping to gene / # of reads in sample -> unitless number because it is a proportion). So the average normalized abundance is dividing the sum normalized abundance for all genes by the total number of genes assayed/sequenced in the sample. The average normalized abundance should be the same across all sample as this is like "normalizing the size of each sample into pies of all equal sizes", therefore can compare "how much of a slice" a gene's expression takes up and compare between samples. RPKM doesn't normalize "the full pie size" so it is equal between samples.
+Source: http://blog.nextgenetics.net/?e=51, Measurement of mRNA abundance using RNA-seq data: RPKM measure is inconsistent among samples (Wagner, Kin / 2012).
+Q: Calculation for RPKM (or FPKM)? Calculation for TPM?
+A: RPKM/FPKM order of operations: first normalize by library size (total number of reads in sample, usually total mapped reads), this is RPM (reads per million) -> then divide by the genomic length of the gene, this is the RPK (Reads per Kilobase). TPM order of operations: normalize by gene length by dividing the number of reads that map to gene by the gene length (RPK, reads per kilobase) -> normalize by sequencing depth by summing the RPKs across all genes to get a scaling factor, and then divide this sequencing depth scaling factor by 1,000,000 (RPM, Reads Per Million) -> divide the RPK of each gene by the sequencing depth scaling factor.
+Source: https://www.youtube.com/watch?v=TTUrtCY2k-w
+Q: Why is TPM better than RPKM or FPKM?
+A: Though TPM & RPKM/FPKM both normalize for gene length & sequencing depth, TPM normalizes differently for sequencing depth, where it sums the RPK (Reads Per Kilobase - normalizing for gene length) for all genes (instead of dividing by number of mapped reads in library). The difference this makes - sum all the normalized values for all genes, and you'll see for RPKM/FPKM the value is different between samples, however for TPM it is the same across all samples. Since the sum of normalized gene expression is the same across all samples in TPM, the gene expression can be compared between samples to see if they truly different without worrying if "sum size of all genes" is larger. Analogy: with RPKM, the pie size between samples is a different size, so it's harder to determine the same slice size if the pie sizes are different. With TPM, the pie is the same size, so different samples are comparable to each other.
+Source: https://www.youtube.com/watch?v=TTUrtCY2k-w
+Q: What are potential limitations of Cufflinks?
+A: CONJ: 1) doesn't use SJ, therefore harder to determine transcript isoforms because there is no overlap between SJs, whereas there is overlap between exons which makes it harder to distinguish transcript isoforms; 2) for PE reads, the interior nucleotides that are not sequenced -> unsure which exons are contained within this unsequenced region -> PERHAPS this is where fragment length distribution comes into play so we can infer where the paired-end reads map to; 3) As can be observed in figure 1 of paper, I don't think the mapped PE reads can identify unique isoforms or separate isoforms as it does not know when a "new transcript path" has been created -> this can only be determined by connections made by splice junctions.
+Source: KnowledgeTweets post "7.15.2014 – Paper: “Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation.” (Trapnell / 2010 / Nature Biotech)"
+
+<!-- Splicing Algorithms & Tools -->
+Q: How does SpliceSeq determine if a splice junction is real?
+A: Stated that, for existing or known splice junctions, a SJ is real if 2 or more reads map >= 4 bases within each exon (existing or known splice junctions). For novel splice junctions, called an "observation" when more than 3 reads with a minmum of 5 based overlap on both sides of splice junction to be an observed splice junction.
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: How does SpliceSeq compare splicing within a sample?
+A: CONJ: Compare splicing events based on if they share a common donor splice site (5' end of intron). I'm assuming for plus strand genes the 5' end of the intron is on the lower genomic position than the 3' end of the intron, and the opposite is true for negative genes (5' end position > 3' end position).
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: For SpliceSeq, how is transcript isoform expression estimated?
+A: See Source for figure describing how calculation is made. Estimates of transcript isoform are estimated by using OPKM (why not RPKM? Not sure?) So, quantify start site & splice junction using OPKM -> sum the total for start site & splice junctions with the same donor site (5' end of intron, need to aware of gene strand sign, plus or minus strand sign) -> calculate percentage of each by dividing by their sum (start site sum and splice junctions with the same donor site) -> multiply the percentage for each isoform (e.g. start site percentage * sj_1 percentage * sj_2 * percentage * sj_3 percentage * etc...) to calculate the relative prevalence of each isoform. For example, if multiple transcript start exons have reads, they are weighted based on their relative OPKM values. For example, if one transcript start exon has an OPKM of 5, and an alternate start exon has an OPKM of 15, then the first gets a weight of 5/(5+15) = 25%.
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: Why would OPKM not be a good metric for undocumented splice junctions (i.e. aberrant splice junctions)? This is my own opinion.
+A: Shortcomings of SpliceSeqV2 is that it can't detect undocument splice junctions, and OPKM is calculated for SJs as (# of reads supporting splice junction * 10^9) / (nucleotide length of region spliced out * # of mapped reads in library). This will be hard to compare aberrant splicing events to canonical splicing events (constitutive SJs; overlapped, canonical splice junctions) as longer spliced -> increase denominator -> lowers normalized splicing expression, which may not be true. Perhaps use expression of ligated exons (e.g. RPKM) as proxy for splice junction.
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: What are shortcomings of SpliceSeq?
+A: SpliceSeqV2 current method does not consider splicing events that splice in novel positions (e.g. unknown alternative 5' & 3' spliceforms that could splice exonically, intronically). Does not address possiblity of novel alternative splice donor/acceptor junctions (i.e. can't detect undocumented splice junctions, aka aberrant splicing).
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: What is OPKM (observation totals normalized by exon length and million-aligned-reads)?
+A: An observation is the number of reads that map to a splice junction. It's the same exact thing as RPKM, but with splice junctions it's using the intron length (# of observations * 10^9) / (length of intron * total number of mapped reads in sample). This is valid as long as we compare splice junctions that are in the same position in the gene, as length and positional bias (& GC-content) can affect read count for a position. It does bring up one issue though, how can I compare aberrant SJ events to splice junctions that are canonical and are overlapped by aberrant SJ?
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: What can SpliceSeq do?
+A: Functionalties of SpliceSeq includes: 1) A single sample's transcriptome from RNA-Seq data, 2) A comparative analysis of transcriptomes from pairs of samples, 3) An average transcriptome of a group of samples, 4) A comparative analysis of transcriptomes between pairs of groups.
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: How does SpliceSeq work?
+A: SpliceSeq works by aligning sample reads to a database of known splicing patterns represented as gene transcript splice graphs -> maps reads and generates summary statistics which includes normalized read count values for genes, exons, splices, attributes, etc. (what else does it analyze?) -> it then traverses the splice graphs to detect alternative splicing events and evaluate the impact of splicing changes on protein products for each sample.
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: For SpliceSeq, what is Percent-Spliced-In (PSI)?
+A: PSI is a metric to determine the percentage of transcripts from a specific gene that includes a specific exon. Equation for PSI = (inclusive reads) / (inclusive reads + exclusive reads). Inclusive reads = reads that support presence of exon in transcript (i.e. splice junctions that include exon, but wait - does inclusive reads also include reads mappping to exon?) Exclusive reads = reads that support absence of exon in transcript (i.e. splice junctions that skip exon). Also use PSI compare samples to see if alternative splicing is present. 
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+
+
+<!-- INCOMPLETE -->
+Q: The picture I took from SeeClickFix about Binomial distribution, how do I understand that?
+Q: How do I read the graph of a normal distribution?
+Q: How do I read the graph of a Poisson distribution?
+Q: How do I read the graph of a Binomial distribution?
+Q: How do I read the graph of a Negative Binomial distribution?
+Q: how to use statistical distributions for RNA-seq?
+Q: what is the law of total variance?
+Q: For looking at alternative and aberrant splice junctions, in what ways is my process possibly different?
+A:-----
+-will compare aberrant SJ to all overlapping SJs
+-as I see higher aberrant SJ with higher gene expression, will check where the aberrant SJ is occurring within the gene to see if the aberrant SJ is significantly occurring at a specific SJ position or just equally distributed across the gene
+    -perhaps need to correct for biases or even 
+-correct for biases (positional, GC-content)
+-want to find way to "quantify" expression of aberrant SJ and estimate the percentage of transcripts affected by specific SJ
+    -idea: compare the read count of aberrant SJs to other SJs that overlaps the aberrant SJ -> what are the fractions
+    -idea: normalize the total read count of SJs of a gene to overlappings in an alternative/aberrant SJ position, perhaps gives a better idea of fraction of transcripts affected -> WHY WOULD THIS METHOD BE HELPFUL?
+        -should I normalize by position? GC-content
+    -idea: compare adjacent exons ligated by SJ to other SJ-exons that overlap
+
+Q: what does the current software packages for splicing look at?
+A: For looking at isoform abundance, use Cuffdiff2 or MISO. For looking locally at specific positions
+-to determine global isoform transcript abundance in a sample, use MISO or CuffDiff2
+-look more locally within gene (i.e. look at different exons and splice junctions utilized) - DEXSeq or DSGseq
+    -mentioned that algorithms must look at multiple samples to determine differential exon usage
+    -both algorithms heavily depend on annotations, where issues come up with both RefSeq (conservative annotations)
+    -only considers known annotated exons, doesn't consider aberrant SJ (i.e. undocumented form of splicing) -> but apparently algorithm SplicingCompass does this.
+Source: A survey of software for genome-wide discovery of differential splicing in RNA-Seq data (Hooper / 2014)

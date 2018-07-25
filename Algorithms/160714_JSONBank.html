@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>160714_JSONBank</title>
+
+<script src = "/Users/Mokha/Documents/Web Design/Nityxlabs/JS Scripts/jQuery/jquery-2.1.4.min.js"></script>
+
+<script type = 'text/javascript'>
+var g_objJSON = {};         //object that records
+var g_counter = 0;          //counts the number of entries in g_objJSON
+var g_keys = [];         //array that will record keys from object         
+var g_tracker = 0;          //tracks the key to in g_keys
+
+//FUNCTIONS: basic functions//
+function objLen( obj ) {
+    //METHOD: returns the number of elements in the object
+    return Object.keys(obj).length;
+}
+
+function largestKey( obj ) {
+    //METHOD: returns the largest numerical value in an object, assuming the keys in the object
+    var intKeys = Object.keys( obj ).map( function(val) { return parseInt( val ); } );
+    return Math.max.apply( null, intKeys );     //first parameter is the name of the function (null), and the 2nd is an array of values
+}
+
+function clearFields() {
+    //METHOD: clears text fields 
+    $('textarea').val('');
+    $('input').val('');
+}
+
+//FUNCTIONS: manipulate JSON//
+function addElem() {
+    //METHOD: add a new element to the JSON object
+    //get the question & answer pair, & record index for entry
+    g_objJSON[ g_counter ] = { 'Q': $('#getQuestion').val(), 'A': $('#getAnswer').val(), 'score': 0 };
+    g_keys.push( g_counter );
+
+    //increment counter for next entry
+    g_counter++;
+
+    //TEST::
+    console.log( "g_objJSON = ", g_objJSON );
+}
+
+function uploadJSON() {
+    //METHOD: read in string version of JSON file & input into variable 'g_objJSON'
+    g_objJSON = JSON.parse( $('#upload').val() );
+
+    //record all keys to global array object
+    g_keys = formatKeys( Object.keys( g_objJSON ) );
+
+    //increment to the next largest value
+    g_counter = largestKey( g_objJSON );
+    //g_counter = Math.max.apply( null, g_keys )
+    g_counter++;
+}
+
+function formatKeys( arrKeys ) {
+    //METHOD: format the keys by converting them to integers & sort it from least to greatest
+    arrKeys = arrKeys.map( function(x) { return parseInt(x); } );
+    arrKeys = arrKeys.sort( function(a, b) { return a - b; } );
+    return arrKeys;
+}
+
+
+function downloadJSON() {
+    //METHOD: writes output file as JSON file & prints it to a textbox for user to download
+    $('#download').val( JSON.stringify( g_objJSON ) );
+}
+
+//TEST:: 
+function displayQues( direction ) {
+    //METHOD: Traverse the uploaded JSON file
+    //retrieve the object key from g_key via g_tracker, but first check if g_tracker is within range
+    g_tracker += parseInt( direction );
+    if ( g_tracker >= g_keys.length )
+        g_tracker = 0;
+    else if ( g_tracker < 0 )
+        g_tracker = g_keys.length - 1;
+
+    //show the entry
+    var key = g_keys[ g_tracker ];
+    // console.log( key, ": Q - ", g_objJSON[key]['Q'], " | A - ", g_objJSON[key]['A'] );
+
+    //display question
+    var slide = key + "<br/>Q: " + g_objJSON[key]['Q'] + "<br/>";
+    slide += "<button onclick = 'displayAns(" + key + ")'> Answer </button><br/>";
+    slide += "<span id = 'showAns'></span>";
+    $('#showQues').html( slide );
+}
+
+function displayAns( key ) {
+    //VAR: key = integer that refers to the index in the global object g_objJSON
+    //METHOD: display answer to corresponding key
+
+    //toggle the visibility of the answer
+    if ( $('#showAns').html().length > 0 )
+        $('#showAns').html('');
+    else {
+        var ans = g_objJSON[key]['A'];
+        $('#showAns').html( ans );
+    }
+}
+
+function textToJSON() {
+    //METHOD: This function will convert a body of text into a JSON object
+    var objJSON = {};
+    var getText = $( '#uploadTextToJSON' ).val();
+    getText = getText.replace(/[\r\n]/g, '');
+
+    var arrText = getText.split('Q:');
+    for ( var q in arrText ) {
+        var pairQA = arrText[q].split('A:');
+
+        if ( /\S/.test( pairQA ) )
+            objJSON[q] = {'Q': pairQA[0], 'A': pairQA[1]};
+    }
+
+    console.log( "objJSON = ", JSON.stringify( objJSON ) );
+    $( '#TextJSONConversion' ).val( JSON.stringify( objJSON ) );
+}
+
+function JSONtoText() {
+    //METHOD: converts stringified JSON text to Q & A text
+    var getJSON = JSON.parse( $('#uploadJSONToText').val() );
+    var getText = "";
+    for ( var k in getJSON ) {
+        console.log( "Q = ", getJSON[k]['Q'], " & A = ", getJSON[k]['A'] );
+        getText += "Q: " + getJSON[k]['Q'] + "\nA: " + getJSON[k]['A'] + "\n";
+    }
+
+    $( '#TextJSONConversion' ).val( getText );
+}
+</script>
+</head>
+
+
+<body>
+
+Enter Question: <input id = 'getQuestion'></input>
+<br/>
+Enter Answer: <textarea id = 'getAnswer'></textarea>
+<br/>
+<button onclick = 'addElem();clearFields()'>Save</button>
+
+<br/><br/>
+
+Input JSON text:
+<textarea id = 'upload'></textarea>
+<button onclick = 'uploadJSON()'>Upload</button>
+
+<br/><br/>
+
+Output JSON.stringify:
+<textarea id = 'download'></textarea>
+<button onclick = 'downloadJSON()'>Download</button>
+
+<br/><br/>
+
+Traverse JSON:
+<br/>
+<button onclick = 'displayQues(-1)'> << </button>
+&nbsp;&nbsp;&nbsp;
+<button onclick = 'displayQues(1)'> >> </button>
+<br/>
+<span id = 'showQues'></span>
+
+
+<br/><br/>
+--------------------------------------
+<br/>
+
+Convert Text to JSON:<br/>
+<textarea id = 'uploadTextToJSON'></textarea>
+<br/>
+<button onclick = 'textToJSON()'>convert Text to JSON</button>
+
+<br/>
+
+Convert JSON to Text:<br/>
+<textarea id = 'uploadJSONToText'></textarea>
+<br/>
+<button onclick = 'JSONtoText()'>convert JSON to Text</button>
+
+<br/><br/><br/>
+
+Get Conversion Here:<br/>
+<textarea id = 'TextJSONConversion'></textarea>
+
+</body>
+</html>

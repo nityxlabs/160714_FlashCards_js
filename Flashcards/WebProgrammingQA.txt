@@ -1,0 +1,129 @@
+<!-- Basics -->
+Q: How many elements are in the ASCII table?
+A: the ASCII table has 256 (0-255) values. It's like a hash table, where the key is integer and the value is a character value. 
+Q: what is a bit vector?
+A: A bit vector is a bit array - an array that stores a bit value into each element.
+Q: What are bitwise operators?
+A: Bitwise operators are methods for manipulating and shifting bit values. See leftshift operator, logical rightshift operator, & arthimetic right shift operator.
+Q: what is the leftshift operator?
+A: leftshift (<<) shifts values to the left. So for value 8-bit value, 00000110 = 6, 6 << 1 will shift over by 1 value 00001100 = 12. This is the same as 6 * 2^1 as binary is 2-based. So 6 << 2 is 6 * 2^2 = 6 * 4 = 24, or 00011000 = 2^4 + 2^3 = 16 + 8 = 24. Note that if value is 11000000 = 192, a leftshift will change it to 10000000 = 128, which is a loss of information as the lost 1 has nowhere else to go. Even trying to reverse it with the rightshift operator (>>) won't reclaim that 1, as it will become 01000000 = 64.
+Source: http://stackoverflow.com/questions/141525/what-are-bitwise-shift-bit-shift-operators-and-how-do-they-work
+Q: What is the logical rightshift operator?
+A: Logical rightshift (>>>) operator is the opposite of the leftshift operator where it shifts bits to the right. For example, for value 00000110 = 6, 6 >>> 1 will be 00000011 = 3. Remember that information can be lost if shifted to point where 1's are lost. For instance, for 00000011 = 3, 3 >>> 1 will be 00000001 = 1, and 1 << 1 will be 00000010 = 2, not the original 3.
+Source: http://stackoverflow.com/questions/141525/what-are-bitwise-shift-bit-shift-operators-and-how-do-they-work
+Q: What is arthimetic right shift?
+A: This is the same as logical rightshift operator, but preserves the sign of the value (+ or -). QUES: But where is value for sign stored? Look at source for description of arthimetic right shift.
+Source: http://stackoverflow.com/questions/141525/what-are-bitwise-shift-bit-shift-operators-and-how-do-they-work
+Q: what is a bubble sort?
+A: Bubble sort works like this: get current element and next element -> if next > current, then swap positions of values, else do not swap values -> go to next position, and then repeat -> continue until able to traverse list without any swaps. This has time complexity of O(n^2), where the worst case scenario is O(n^2) (completely unsorted or sorted in reverse orderhave to visit every element in the array).
+Q: What is a pointer?
+A: A pointer references a location in memory, and obtaining the value stored at that location is known as dereferencing the pointer. As an analogy, a page number in a book's index could be considered a pointer to the corresponding page; dereferencing such a pointer would be done by flipping to the page with the given page number.
+Q: Why are pointers significant?
+A: Pointers to data significantly improve performance for repetitive operations such as traversing strings, lookup tables, control tables and tree structures. In particular, it is often much cheaper in time and space to copy and dereference pointers than it is to copy and access the data to which the pointers point.
+Q: In programming, what is a script?
+A: A script is a file with code that is executed by a program called an interpreter (e.g. Python interpreter, Javascript interpreter). Scripts allow other users to look at the source code, modify it, and execute it. Scripts are often interpreted from source code or bytecode, whereas the applications they control are traditionally compiled to native machine code. The opposite of a script is a program, where a program (e.g. Microsoft Word, Excel) is a stand-alone piece of software that doesn't need another program to execute it.
+Q: what is a scripting language?
+A: A language the supports scripts (file containing code that is read by an interpreter). Scripting language doesn't require a compilation time (why not)? Also note that whether a language is a "scripting" language or not can be more about the environment than the language. There's no reason you can't write a C interpreter and use it as a scripting language (and people have). There's also no reason you can't compile JavaScript to machine code and store that in an executable file (and people have).
+Q: what is a compiled language?
+A: A compiled language is one where the program, once compiled, is expressed in the instructions of the target machine. For example, an addition "+" operation in your source code could be translated directly to the "ADD" instruction in machine code.
+Source: http://stackoverflow.com/questions/3265357/compiled-vs-interpreted-languages
+Q: What is an interpreted language?
+A: An interpreted language is one where the instructions are not directly executed by the target machine, but instead read and executed by some other program (which normally is written in the language of the native machine). For example, the same "+" operation would be recognized by the interpreter at run time, which would then call its own "add(a,b)" function with the appropriate arguments, which would then execute the machine code "ADD" instruction.
+Source: http://stackoverflow.com/questions/3265357/compiled-vs-interpreted-languages
+Q: What is the difference between a compiled and interpreted language?
+A: The difference ISN'T the language, but the implementation. In a compiled implementation, the original program is translated into native machine instructions, which are executed directly by the hardware. In an interpreted implementation, the original program is translated into something else. Another program, called "the interpreter", then examines "something else" and performs whatever actions are called for. Note that compiled languages can become interpreted languages if an interpreter is built, and interpreted languages can become compiled languages if translated into machine code.
+Source: http://stackoverflow.com/questions/2657268/whats-the-difference-between-compiled-and-interpreted-language
+Q: What is dynamic typing?
+A: A language has dynamic typing when it does not associate values strictly with a specific type, but it is designed to "decide" what the type of a value should be at runtime, based on how you are attempting to use it.
+Q: What is the difference between strongly-typed & weakly-typed language?
+A: A strongly typed language is more likely to generate an error or refuse to compile if the argument (i.e. variable) passed to a function does not closely match the expected type. On the other hand, a very weakly typed language may produce unpredictable results or may perform implicit type conversion.
+
+
+<!-- Telecommunication Basics -->
+Q: What is HTTP (Hypertext Transfer Protocol)?
+A: Procotol for communicating between a computer and its server.
+Q: What is request-response model for HTTP?
+A: CONJ: A way to communicate between a client & server. The client sends a 'request' to the server and the server sends a 'response' which is the webpage.
+Q: what is an application programming interface (API)?
+A: API are pre-built functions, routines, etc. (code) that a programmer uses to build specific tools. Basically, it is a set of code that act as lego pieces to make it easier to build certain types of programs.
+Q: what is a socket?
+A: socket is a the endpoint of a computer connection, either sending or receiving data. This is similar to mailboxes, where information will be sent or received at the ends of a mailing route. Socket address has an IP & a port number assigned to it. As most communication between computers are internet based, most network sockets are known as internet sockets. Socket does not need address to send data, but needs address to receive data. Socket API are programs that utilize sockets for communication.
+Q: What does single-threaded mean?
+A: Single-threaded means it can handle only 1 task at a time, similar to a person handling 1 task at a time. Javascript is a single-threaded language, able to handle only one process at a time. NOTE: this is not the same as asynchronous (how does asynchronous handle processes pushed to the background then)?
+Q: Why use sockets?
+A: Sockets are used to send large packets of data instance, whereas HTTP calls will be too slow to receive large packets of data (i.e. 2 player web-based game, online chats) 
+Q: what is the difference between synchronous & asynchronous javascript?
+A: synchronous communication processes data in order - each step needs to be completed before going to next process. Asynchronous communcation - runs all commands at first go and pushes commands in background that need more time. For example, for commands X-Y-Z, X & Z are instant yet Y takes extra time. For synchronous - these commands will be executed sequentially - X, then Y, and Z. For asynchronous - X & Z would print first, and Y is printed when it is done.
+Q: what are examples of asynchronous processes?
+A: Processes that take time to execute. Examples of asynchronous processes: calling APIs, reading and writing files, executing operations on the server. CONJ: I think the processes that take a longer time are pushed into the background while other processes are executed in the script (as opposed to things being executed step-by-step in a synchrononous program).
+Q: What is Socket.io?
+A: CONJ: Javascript library that helps build socket apps (applications that use network sockets to communicate, meaning these applications can communicate quickly). It enables realtime, bi-directional communication between web clients and servers.
+
+<!-- Basic Data Structures -->
+Q: For hash table, what are buckets/slots?
+A: buckets or slots refers to what holds the values in the hash. The hash has an index (keys), & each index points to a bucket (aka slot).
+Q: For hash table, what is rehashing?
+A: Rehashing is basically resizing. When the number of entries exceeds the load factor (load factor * hash capacity) -> hash's internal data structure is rebuilt to have twice the number of buckets -> operation is costly because has to reassign each index-bucket (key-value) pair (CONJ: maybe run time of O(n)).
+Q: For hash table, what is the load factor?
+A: load factor of hash = measure of the number of entries the hash can hold before being resized; capacity of a hash = # of buckets in the hash (i.e. number of values the hash can hold); initial capacity of hash = capacity of hash at the time the hash is created.
+Q: Why is having a load factor = 1.0 not efficient?
+A: There are 2 factors that affect hash's efficiency: space allocation and search time. The hash is rehashed when # of entries > (load factor * capacity of hash). Therefore if load factor is lower, then the more likely the hash will be rehashed often (rehashing = running time of O(n)). However if load factor is higher, then the search time would take longer (like searching through an entire array). Suggested that ideal load factor is 0.75 to balance search time & space allocation.
+Q: interpolation search?
+A: This is similar to looking into a telephone book - look at person's name (key) to find their number (value). Basically look up key (phone number) in indexed array that has been ordered by the values of the key (person's name).
+Q: binary search?
+A: Search through a sorted array (least to greatest) where it starts at the half way point of the array. If the value is less than the half way point, then will continue dissecting halfway points of earlier half of array until it is found. Else if value is greater, then will continue dissecting halfway points of later half of array until it is found.
+Source: https://en.wikipedia.org/wiki/Binary_search_algorithm
+Q: what is the heap vs. the stack?
+A: CONJ: the stack is allocated memory for a program before the program is compiled. The heap is dynamic memory allocated during the run of the program. Analogous to a set budget to buy food for a party (the stack), and then extra funds to buy extra things when spontaneously needed (the heap)
+Q: What is a heap data structure?
+A: (IS THIS CORRECT?) A specialized case of balanced binary tree tree-based data structure with the heap property: If A is the parent node of B, then the value of A & B have the same hierarchy - what does this really mean? I assume of A is the parent of B, then their values would have the same relationship? Max heap is when the parent value >= children value, so the root node has the highest value. Min heap is the opposite, where the parent value <= children value, therefore the root is the lowest value. 
+Q: what is time complexity?
+A: It is basically referring to Big-O notation - the running time of an algorithm. O(1) is constant search time regardless of input size, O(n) is linear search time based on the input size, etc.
+
+<!-- Time Complexity -->
+Q: What does n! mean mathematically? O(n!)?
+A: n! is involved in permutations & combinations. So when something takes O(n!) Example: want to see the combination of 3 kids sitting in 3 chairs (e.g. a, b, c; a, c, b; b, a, c, etc.. ).
+Q: what does n^2 mean mathematically? O(n^2)?
+A: O(n) is linear, and O(n^2) is quadratic. If O(n) goes through an array or list, O(n^2) goes through a grid or matrix. The worst case scenario is n^2 assuming the matrix is square (if the matrix is rectangle, then one of the sides is shorter. Want to assume both sides are the longest edge of the rectangle, just as a worst-case scenario).
+Q: what does log(n) mean mathematically? O(log n)?
+A: For O(log n), it looks at few elements with priori knowledge (e.g. array or list is sorted) to find the element of interest. Example 1: look in telephone book to find someone -> start in middle and if their last name is before the last names in the middle of the book, look in the middle of the earlier half of the book -> continue looking at the middle person is found. Example 2: see how binary search works. FYI, Log(n) is the inverse operation of exponentiation (i.e. 10^3 = 1000, then the logarithm base 10 of 1000 is 3).
+Q: Explanation 2 of O(log n)?
+A: binary search divides the array of length 'n' (search space) by 2 each time, 'x' is the number of times the array is divide -> worst case scenario is dividing the entire array up until the last element. Math: n/2^x = 1 -> 2^x = n -> x * log_base_10(2) = log_base_10(n) -> x = log_base_10(n)/log_base_10(2) = log_base_2(x).
+Source: https://www.quora.com/How-would-you-explain-O-log-n-in-algorithms-to-1st-year-undergrad-student
+Q: what does n * log(n) mean mathematically? O(n * log(n))?
+A: An example is looking into telephone books of different cities to see if the same full name is present, e.g. John Smith in Miami, John Smith in Atlanta, John Smith in El Paso, John Smith in Jackson Hole, etc. This is O(n * log(n)) has O(n) is the number of phonebooks I have to look through (from each city), and O(log n) is how long it takes to search for a name in each phonebook.
+
+
+<!-- Circuits -->
+Q: what is a half-adder?
+A: CONJ: Some sort of logic circuit component that helps with carrying numbers over during binary addition? Not sure. The half-adder has 2 inputs (value A & B) and can produce 2 outputs, a sum & a carry. The sum is the addition of both binary values and the carry is the remainder from the sum (so when 1 + 1 = 0, the carry = 1). CONJ: I think the values are binary for a circuit because there are only 2 possible states for each input - ON and OFF.
+Source: http://www.circuitstoday.com/half-adder-and-full-adder
+Q: what is a full-adder?
+A: A full adder has 3 inputs and 2 outputs, where the inputs are A, B & Cin where Cin is the carry-over input (somewhat like the carry output of a half-adder is basically the input for a carry input). The outputs are a sum and carry just like a half-adder. This can be used to build 8-bit (byte-wide) adder.
+Source: http://www.circuitstoday.com/half-adder-and-full-adder
+
+<!-- Unknown -->
+Q: Are bit operations possible in Javascript? Python?
+Q: What is a left bitwise shifter?
+Source: http://stackoverflow.com/questions/141525/what-are-bitwise-shift-bit-shift-operators-and-how-do-they-work 
+Q: What is space complexity? Is this the amount of memory a computer uses memory? I us   ually hear time complexity and memory complexity being used together (e.g. the time & space complexity of a function, process, etc.).
+A: ?
+Q: How does array resizing & memory management work? Does it take O(n) time when doubling the size of the array?
+A: ?
+Q: What is the running time (big O notation) of implementing a hash table?
+A: ?
+Q: What is binomial heap?
+A: ?
+Q: What is kd-tree?
+A: ?
+Q: What is sorted array of uniform
+A: ?
+Q: What is ripple carry?
+A: ?
+Q: What is a depth first search?
+A: ? something to with O(n^n) time complexity
+Q: For time complexity, is it possible to search O(1/n)?
+A: ?? NOT SURE, but this would mean . Check link - http://stackoverflow.com/questions/905551/are-there-any-o1-n-algorithms
+Q: For version control, why use Mercurial over Git?
+Q: For version control, why use Git over Mercurial?
+

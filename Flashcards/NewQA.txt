@@ -1,0 +1,109 @@
+<-- 12.9.2016 -->
+Q: What is SF2/ASF?
+A: SF2 = splicing factor 2. ASF = alternative splicing factor. These proteins are splicing factors involved in splicing of constitutive & alternative exons, is a member of the serine/arginine rich protein family - is essential for cell viability.
+Q: What are SR proteins?
+A: Serine/arginine proteins involved in RNA splicing. SR proteins recognize purine-rich ESEs that recruit spliceosome components (e.g. U2 auxiliary factor, U2AF) to splice sites.
+Q: What types of proteins are involved in splicing?
+A: U2AF - splicing factor made up of 2 subunits, U2AF65 & U2AF35 -> U2AF35 assists binding of U2AF65 to polypyrimidine tract upstream of 3' splice site, which recruits U32AF to precursor mRNA. snRNPs (small-nuclear ribonucleoproteins) - these types of proteins make up the spliceosome. SR proteins - recognize purine-rich ESEs that recruit spliceosome components (e.g. U2 auxiliary factor, U2AF) to splice sites.
+Source: see KnowledgeTweets post "15.6.16 – Splice junctions and disease"
+Q: How does splicing work with the serine/arginine splicing proteins?
+A: CONJ: proteins bind to specific positions on gene, such as splice sites (donor & acceptor), splicing enhancers/silencers, and then SR proteins bind to these proteins (e.g. U2AF) to splice the mRNA transcript.
+Source: see KnowledgeTweets post "15.6.16 – Splice junctions and disease"
+Q: What is the nucleoplasm?
+A: the substance of a cell nucleus, especially that not forming part of a nucleolus.
+Q: What is a nuclear speckle?
+A: Subnuclear structures that are enriched in pre-mRNA splicing factors and are located in the interchromatin regions of the nucleoplasm of mammalian cells.
+Q: What is the spliceosome composed of?
+A: the spliceosome, a complex macromolecular machinery composed of five small nuclear ribonucleoprotein particles (U1, U2, U4, U5, and U6 snRNPs) and more than 200 auxiliary proteins. The spliceosome mediates the recognition of the short consensus sequences surrounding the 5′-(GU) and the 3′-(AG) splice site and catalyzes the two transesterification reactions necessary for the removal of the intron and ligation of the selected exons
+Q: What does phosphorylation have to do with splicing?
+A: Phosphorylation regulates splicing. For instance, phosphorylation of SRSF1 promotes spliceosome assembly, whereas its dephosphorylation is necessary for the catalysis of the first transesterification reaction (Ref 14 in Source). Also, both hypo- and hyperphosphorylation can inhibit splicing.
+Source: Phosphorylation-Mediated Regulation of Alternative Splicing in Cancer (Naro, Sette / 2013)
+Q: What kinases are responsible for phosphorylating splicing factors? Which phosphatases are involved?
+A: Kinases = SRPK (SR protein kinases, i.e. kinases that phosphorylate SR proteins), CLK (cyclin-dependent Like Kinases). SRPKs can phosphorylate SR proteins both in the nucleus and in the cytoplasm, thus affecting several aspects of their function. SRPK-mediated phosphorylation of SR proteins in the cytoplasm is necessary to ensure SR proteins nuclear import (Figure 1) (Ref 44 in Source), as it enhances their interaction with the specific transportin SR2. Phosphatases = activation and inhibition of the PP1 and PP2A phosphatases are required for splicing catalysis (Ref 5 & 6 in Source).
+Source: Phosphorylation-Mediated Regulation of Alternative Splicing in Cancer (Naro, Sette / 2013)
+Q: Why are splice factor kinases in the cytoplasm? In the nucleus? Note that SPRK are kinases that phosphorylate SR proteins.
+A: SRPK-mediated phosphorylation of SR proteins in the cytoplasm is necessary to ensure SR proteins nuclear import (Figure 1) (Ref 44), as it enhances their interaction with the specific transportin SR2. For instance, several reports suggest that SRPK-mediated phosphorylation of SRSF1 is essential for its nuclear localization and the resulting splicing activity triggered by stimulation of specific signaling pathways (i.e., IGF-1 and EGF treatments) (Ref 43, 47 in Source).
+Source: Phosphorylation-Mediated Regulation of Alternative Splicing in Cancer (Naro, Sette / 2013)
+
+<-- 11.20.2016 -->
+Q: How does Cufflinks estimate isoform abundance?
+A: CONJ: Cufflinks uses sequenced paired-end (PE) fragments to determine isoform abundance. Finds PE fragments that uniquely map to isoforms (mutually incompatible PE fragments), uses these to distinguish isoforms -> generates the least number of transcripts to explain the paired-end fragment, mutually compatible & incompatible, observed (Dilworth Theorem) -> uses both unique & non-unique mapped fragments to determine the abundance of each isoform, uses some statistical model (how do they do this??? I think Maximum Likelihood Estimation) -> assigning a fragment to a different isoform implies a different length of that isoform (which is somehow related to the fragment length distribution), therefore use the fragment length distribution to help assign fragments to isoforms. Extra note - Mutually compatible pair-end fragments - paired-end fragments that can map to multiple isoforms of the gene. Mutually incompatible pair-end fragments - paired-end fragments that map to ONLY ONE isoform of the gene.
+Source: Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation. (Trapnell / 2010 / Nature Biotechnology)
+Q: Cufflinks uses Dilworth's Theorem to determine the number of isoforms present in the sample. What is Dilworth's Theorem?
+A: Dilworth's Theorem - basically states that the number fragments that uniquely map to one isoform (mutually incompatible pair-end fragments) - construct the minimum number of isoforms (documented & undocumented) to explain the # of isoforms present. In other words, Cufflinks generates the minimum number of isoforms need to explain the uniquely mapped fragments.
+Source: Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation. (Trapnell / 2010 / Nature Biotechnology)
+Q: For Cufflinks, how does it estimate transcript abundance using a statistical model? Says "the probability of observing each fragment is a linear function of the abundances of the transcripts from which it could have originated".
+A: CONJ: can determine which PE fragments originate from which transcripts -> use a likelihood equation to determine the probability a fragment originated from a specific transcript isoform.
+Source: Transcript assembly and quantification by RNA-Seq reveals unannotated transcripts and isoform switching during cell differentiation. (Trapnell / 2010 / Nature Biotechnology)
+Q: What is the geometric distribution?
+A: It is the distribution of the number of independent Bernoulli trials to get the first success. Equation is P = (1-p)^(x-1)*p, where P = probability mass function, p = probability of success, (1-p) = probability of failure, x = number of trials. Note, Bernoulli trial is an experiment with 2 outcomes, "success" and "failure" (e.g. flipping a coin).
+Source: see KnowledgeTweets post "7.27.2014 – DESCRIPTION: Geometric Distribution"
+
+
+<-- 11.16.2016 -->
+Q: What can SpliceSeq do?
+A: Functionalties of SpliceSeq includes: 1) A single sample's transcriptome from RNA-Seq data, 2) A comparative analysis of transcriptomes from pairs of samples, 3) An average transcriptome of a group of samples, 4) A comparative analysis of transcriptomes between pairs of groups.
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: How does SpliceSeq work?
+A: SpliceSeq works by aligning sample reads to a database of known splicing patterns represented as gene transcript splice graphs -> maps reads and generates summary statistics which includes normalized read count values for genes, exons, splices, attributes, etc. (what else does it analyze?) -> it then traverses the splice graphs to detect alternative splicing events and evaluate the impact of splicing changes on protein products for each sample.
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: For SpliceSeq, what is Percent-Spliced-In (PSI)?
+A: PSI is a metric to determine the percentage of transcripts from a specific gene that includes a specific exon. Equation for PSI = (inclusive reads) / (inclusive reads + exclusive reads). Inclusive reads = reads that support presence of exon in transcript (i.e. splice junctions that include exon, but wait - does inclusive reads also include reads mappping to exon?) Exclusive reads = reads that support absence of exon in transcript (i.e. splice junctions that skip exon). Also use PSI compare samples to see if alternative splicing is present. 
+Source: http://bioinformatics.mdanderson.org/main/SpliceSeqV2:Methods
+Q: is the splice donor and splice acceptor different for plus strand genes & minus strand genes?
+A: The splice site motifs are preserved for both plus & minus strands. If look at UCSC genome browser, the splice donor (5'AG|GT-3') & splice acceptor (5'-AG-3') will show up normally for plus strand genes at the splice sites. For minus strand genes, need to take the reverse complement of splice site sequence in order to see it in the plus strand sequence displayed in UCSC genome browser.
+Q: What does it mean if a gene is a plus strand gene? Minus strand gene? Helpful when looking at UCSC genome browser.
+A: The strand sign means where the coding strand is of the gene. So for a plus strand gene, the coding strand will be on the plus strand. For a minus strand gene, the coding strand will be on the minus strand. In UCSC genome browser, the plus strand is always displayed at the top, meaning for plus strand genes the coding sequence is as displayed at the top. For minus strand genes, the sequence is the reverse complement of the sequence displayed on UCSC. So keep in mind, if looking for a sequence motif on the coding strand on UCSC genome browser, it will show on the plus strand of plus strand genes, and then will need to take the reverse complement of the sequence motif to find it in UCSC genome browser.
+
+
+
+<-- 11.15.2016 -->
+Q: What is a normal distribution?
+A: The "bell curve" distribution where mean value is the center of the distribution (i.e. symmetrical distribution). For normal distribution, mean = median = mode. 68% of the values are within 1 standard deviation & 95% of the values are within 2 standard deviations.
+Source: https://www.mathsisfun.com/data/standard-normal-distribution.html
+Q: For a distribution, what is a positive skew? negative skew?
+A: no skew: both sides graph (with respect to the center) are equal size -> symmetrical (e.g. normal distribution). Negative skew: The left tail is longer; the mass of the distribution is concentrated on the right of the figure. The distribution is said to be left-skewed, left-tailed, or skewed to the left. Positive skew: The right tail is longer; the mass of the distribution is concentrated on the left of the figure. The distribution is said to be right-skewed, right-tailed, or skewed to the right.
+Source: https://en.wikipedia.org/wiki/Skewness
+Q: What is an antilog?
+A: It is the opposite of log. So for log base 10, y = log(x), the antilog is x = 10^y.
+Q: What is a log-normal distribution?
+A: The log-normal distribution is when Y = ln(x), and this results in a normal distribution. When the logarithms of values form a normal distribution, the original (antilog) values are lognormally distributed. It is a skew distribution with many small values and fewer large values. Therefore the mean is usually greater than the mode.
+Source: http://www.mhnederlof.nl/lognormal.html
+Q: Calculation for RPKM (or FPKM)? Calculation for TPM?
+A: RPKM/FPKM order of operations: first normalize by library size (total number of reads in sample, usually total mapped reads), this is RPM (reads per million) -> then divide by the genomic length of the gene, this is the RPK (Reads per Kilobase). TPM order of operations: normalize by gene length by dividing the number of reads that map to gene by the gene length (RPK, reads per kilobase) -> normalize by sequencing depth by summing the RPKs across all genes to get a scaling factor, and then divide this sequencing depth scaling factor by 1,000,000 (RPM, Reads Per Million) -> divide the RPK of each gene by the sequencing depth scaling factor.
+Source: https://www.youtube.com/watch?v=TTUrtCY2k-w
+Q: Why is TPM better than RPKM or FPKM?
+A: Though TPM & RPKM/FPKM both normalize for gene length & sequencing depth, TPM normalizes differently for sequencing depth, where it sums the RPK (Reads Per Kilobase - normalizing for gene length) for all genes (instead of dividing by number of mapped reads in library). The difference this makes - sum all the normalized values for all genes, and you'll see for RPKM/FPKM the value is different between samples, however for TPM it is the same across all samples. Since the sum of normalized gene expression is the same across all samples in TPM, the gene expression can be compared between samples to see if they truly different without worrying if "sum size of all genes" is larger. Analogy: with RPKM, the pie size between samples is a different size, so it's harder to determine the same slice size if the pie sizes are different. With TPM, the pie is the same size, so different samples are comparable to each other.
+Source: https://www.youtube.com/watch?v=TTUrtCY2k-w
+
+
+<-- 10.10.2016 -->
+Q: does pre-mRNA have a polyA tail?
+A: CONJ: I think pre-mRNA is first cleaved by an protein complex (perhaps the endonuclease complex) and then the polyA tail is synthesized using polyadenylate polymerase. Note that the polyA tail can be added to different sites at the end of the transcript - this is known as alternative polyadenylation (similar to alternative splicing).
+Q: what does it mean if there is 1% variant-error rate in sequencing?
+A: CONJ: I think it means for every 100 mutations found, 1 will be a sequencing error. OR maybe it means that for every 100 nucleotides sequenced, there will be 1 nucleotide that sequenced incorrectly. This is why sequencing depth (average # of times a nucleotide is sequenced) must be greater than 1x, so when piling up the reads in a given position it can be seen if it is a variant or a sequencing error - if the nucleotide differs from the genomic position & has multiple reads supporting that variant, then that variant is real & not a sequencing error.
+Source: Sequencing depth and coverage: key considerations in genomic analyses. (Sims, Sudbery / 2014 / Nature Reviews Genetics)
+Q: What causes the ability to detect variants (e.g. SNVs, mutations) to be decreased?
+A: low-base quality & non-uniformity of coverage. Increased sequencing depth is required to offset these problems. Also, higher density coverage profiles seems to offer better coverage
+Source: Sequencing depth and coverage: key considerations in genomic analyses. (Sims, Sudbery / 2014 / Nature Reviews Genetics) 
+Q: what is the Phred Quality Score?
+A: Score that conveys the error rate of retrieve a nucleotide base incorrectly. This "incorrectness" arises from the accuracy of the sequencing platform. Equation is Q = -10 log P, where Q = Phred quality score, P = probability of incorrectly calling a base. For example, if P = 0.01 (1 in 100 bases incorrectly called), the Q = 20. P = 0.001 (1 in 1000 bases), then Q = 30. 30 is considered the benchmark for quality in next-gen sequencing.
+Source: http://www.illumina.com/documents/products/technotes/technote_Q-Scores.pdf
+Q: what causes non-uniformity in coverage? (NOT DONE)
+A: 1)could it be primer bias?, 2) fragment length (could it be the fragment ), 3) based on position within gene, fragment length is longer near start of exon (wouldn't it makes sense if splicing in the middle is more likely to lead to longer reads), 4) sequence preference for priming?
+Source: https://liorpachter.wordpress.com/2013/10/17/non-uniform-coverage-of-transcripts-in-rna-seq-experiments/
+Q: what is genome assembly?
+A: A sequence assembly is breaking down a sequence into parts (fragmenting it) and reconstructing the original sequence from the fragments. So genome assembly is taking fragmented chromosome (or smaller) and reconstructing the genome from the fragments. Want to use this over reference genome technique when no annotations are available or for novel genomes.
+Q: Why do you think FPKM (fragment per kilobase of exon per million reads) is used over RPKM (read per kilobase of exon per million reads) for pair-end sequencing?
+A: for single-end seq, a read is the nucleotide sequence from one end of a cDNA fragment, so sequences for either end is a different read. For pair-end seq, a read is the sequence on both ends of a cDNA fragment, therefore a read should theoretically be the same if from the same fragment.
+Q: what is de novo genome sequencing?
+A: sequencing a novel genome where there is no reference sequence available for alignment. Sequence reads are assembled as contigs, the coverage quality of de novo sequence data depends on the size & continuity of the contigs (i.e. the number of gaps in the data).
+Q: What is known thus far about alternative splicing?
+A: 1) majority of genes are alternatively spliced, 2) exon skipping is the major class of alternative splicing, & exon usage varies depending on tissue type & cell type.
+Source: Sequencing depth and coverage: key considerations in genomic analyses. (Sims, Sudbery / 2014 / Nature Reviews Genetics)
+Q: How is the sequencing by synthesis set up before sequencing begins?
+A: RNA is hydrolyzed to fragment RNA -> hydrolysis removes secondary structure that would otherwise make it harder for some primers to access -> allows primers to access these regions for reverse transcription -> RNA is reverse transcribed to cDNA by adding hexamer primers (6-nt primer) -> add adaptors to both ends of cDNA so then it can bind to glass slide full of oligonucleotides for bridge amplification and then sequencing.
+Q: How does sequencing by synthesis work?
+A: prepare cDNA fragment for sequencing (understand sequencing set-up) -> the strand is tethered to a solid substrate (e.g. glass, beads) -> primer is added to the adaptor of the read -> dNTPs (where N = A, T, C, G), where each base has a different color fluorescent marker -> the correct base that is added to next nucleotide fluoresces, and a camera takes a snapshot of the color emitted, and records the corresponding nucleotide based on the color -> the terminator is removed from the nucleotide just added so the next nucleotide can be added -> check fluorescence of next nucleotide & record base -> continue doing until finished sequencing strand.
+Q: What are some potential issues to consider for sequencing by synthesis?
+A: 1) For fluorescent nucleotides with reversible terminators, what if reversible terminator isn't removed so next nucleotide can be added - could lead to sequencing error? 2) could sequencing strand come off in the middle of sequencing (not sure about this), 3) could wrong nucleotide pair with current base position (this could be the quality score)
